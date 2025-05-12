@@ -1,0 +1,147 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #hakkimda {
+            margin-right: 40px;
+            margin-left : 40px;
+            border : 2px solid;
+            text-align: center;
+            margin-top : 25px;
+        }
+
+        #hobiler {
+            margin-right: 40px;
+            margin-left : 40px;
+            border : 2px solid;
+            margin-top : 50px;
+            height: 250px;
+        }
+    
+        #etkinlikler {
+            margin-right: 40px;
+            margin-left : 40px;
+            margin-top : 35px; 
+            border : 2px solid;
+            height: 250px;
+        }
+
+        li {
+            text-align: left;
+            margin-left: 80px;
+        }
+        
+        #hobilerfoto {
+            width : 300px;
+            height :200px;
+            border : 2px solid black;
+            border-radius: 20px;
+            margin-left : 950px;
+            margin-top : -190px;
+        }
+
+        #etkinliklerfoto {
+            width : 300px;
+            height :200px;
+            border : 2px solid black;
+            border-radius: 20px;
+            margin-left: 950px;
+            margin-top: -175px;
+        }
+        
+        button {
+            width: 35px;
+            height: 35px;
+            background-color: transparent;
+            color : black;
+            border: 0px;
+        }
+
+        #hobiileri {
+            margin-left : 1245px;
+            margin-top : -115px;
+        }
+
+        #hobigeri {
+            margin-left : 920px;
+            margin-top : -35px;
+        }
+
+        #etkinlikileri {
+            margin-left : 1245px;
+            margin-top: -110px;
+        }
+
+        #etkinlikgeri{
+            margin-left : 920px;
+            margin-top: -35px;
+        }
+
+    </style>
+</head>
+<body style="background-color: gray;">
+    <div class="card" id="hakkimda">
+        <h5 style="text-align: center; margin-top: 15px;">Hakkımda Kısa Bilgi</h5>
+        <p><b>Ben Mehmet Okyay. 12 Ağustos 2006'da Sakarya'da doğdum. 18 yaşındayım. Sakarya Pamukova'da yaşıyorum. Şu anda Sakarya Üniversitesi'nde bilgisayar mühendisliği okuyorum.</b></p>
+    </div>
+    <div class="card" id="hobiler">
+        <h5 style="text-align: center; margin-top: 15px;">Hobilerim</h5>
+        <ul>
+            <li style="margin-top: 20px;">Balık Tutmak</li>
+            <li>Futbol Oynamak</li>
+            <li>Yüzmek</li>
+            <li>Bilgisayar Oyunu Oynamak</li>
+            <li>Müzik Dinlemek</li>
+            <li>Film ve Dizi İzlemek</li>
+        </ul>
+        <img id="hobilerfoto" src="balik.jpg">
+        <button id="hobiileri" onclick="js:fotoileri();">⇨</button>
+        <button id="hobigeri" onclick="js:fotogeri();">⇦</button>
+    </div>
+    <div class="card" id="etkinlikler">
+        <h5 style="text-align : center;  margin-top: 15px;">Sevdiğim Etkinlikler</h5>
+        <ul>
+            <li style="margin-top: 25px;">Dünya Kupası</li>
+            <li>UEFA Şampiyonlar Ligi</li>
+            <li>Olimpiyatlar</li>
+            <li>Sinema Gösterimleri</li>
+            <li>E-spor Maçları</li>
+        </ul>
+        <img id="etkinliklerfoto" src="dunyakupası.jpg">
+        <button id="etkinlikileri" onclick="js:etkinlikileri();">⇨</button>
+        <button id="etkinlikgeri" onclick="js:etkinlikgeri();">⇦</button>
+    </div>
+
+    <script>
+        let hobilerfotograflar = ["balik.jpg", "sakaryabalik.jpg", "tribun.jpg", "arda.jpg", "sut.jpg", "yüzme.jpg", "film.jpg"];
+        let etkinlikfotograflar = ["dunyakupası.jpg", "kurtaris.jpeg", "şl.jpg", "turkiyeolimpiyat.jpg", "sinema.jpeg", "esporlol.jpeg", "t1espor.jpg"];
+        var indexHobi = 0;
+        var indexEtkinlik = 0;
+
+        function fotoileri() {
+            indexHobi = (indexHobi + 1) % hobilerfotograflar.length;
+            document.getElementById("hobilerfoto").src = hobilerfotograflar[indexHobi];    
+        }
+
+        function fotogeri() {
+            indexHobi = (indexHobi - 1 + hobilerfotograflar.length) % hobilerfotograflar.length;
+            document.getElementById("hobilerfoto").src = hobilerfotograflar[indexHobi];
+        }
+
+        function  etkinlikileri(){
+            indexEtkinlik = (indexEtkinlik + 1) % etkinlikfotograflar.length;
+            document.getElementById("etkinliklerfoto").src = etkinlikfotograflar[indexEtkinlik];
+        }
+
+        function etkinlikgeri() {
+            indexEtkinlik = (indexEtkinlik - 1 + etkinlikfotograflar.length) % etkinlikfotograflar.length;
+            document.getElementById("etkinliklerfoto").src = etkinlikfotograflar[indexEtkinlik];
+        }
+
+    </script>
+</body>
+</html>
