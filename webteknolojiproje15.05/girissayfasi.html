@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    #buton {
+        border: solid 2px black;
+        margin-top: 10px;
+        margin-left: -220px;
+    }
+
+    .container {
+        gap : 10px;
+        margin-block-start: 15px;
+    }
+
+    #cerceve {
+        position: absolute;
+        transform: translateX(-50%);
+        margin-left: 50%;
+        margin-top: 10%;
+        width: 400px;
+        height: 300px;
+        padding: 30px;
+        border: 3px solid #000;
+        border-radius: 15px;
+        background-color: #cfd0d1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #kullaniciadi {
+        width: 300px;
+        background-color: #e6e8ea;
+    }
+    #sifre {
+        width: 300px;
+        background-color: #e6e8ea;
+    }
+
+    </style>
+</head>
+<body style="background: linear-gradient(to right, #00bcd4, #2196f3);">
+    <h1 style="text-align: center; font-style: italic;">Web Teknolojileri Projesi</h1>
+    <h3 style="text-align: center;">Giriş Sayfası</h3>
+    <form action="bilgikontrol.php"  method="post" onsubmit="return girisYap();">
+        <div id="cerceve">
+            <div class="container" id="kullaniciadicontainer">
+                <label for="kullaniciadilabel">Kullanıcı Adı </label> <br>
+                <div class="col-md-3" style="text-align: center;">
+                    <input type="email" name="kullaniciadi" id="kullaniciadi" class="form-control" style="background-color: white;" placeholder="Kullanıcı adınızı girin">
+                </div>    
+            </div>
+            <div class="container" id="sifrecontainer">
+                <label for="sifrelabel">Şifre </label> <br>
+                <div class="col-md-3" style="text-align: center;">
+                    <input type="password" class="form-control" id="sifre" name="sifre" style="background-color: white;" placeholder="Şifrenizi Girin"> <br>
+                </div>
+            </div>
+            <div style="text-align:  center;">
+                <input type="submit" id="buton" value="Giriş Yap" class="btn btn-primary">
+            </div>
+            <div id="uyarimesaji"></div>
+        </div>
+    </form>
+
+    <script>
+        function girisYap() {
+            var kullaniciadi = document.getElementById("kullaniciadi").value;
+            var sifre = document.getElementById("sifre").value;
+            var uyarimesaji = document.getElementById("uyarimesaji");
+
+            if (kullaniciadi == "") {
+                alert("Kullanıcı adınızı girin");
+                return false;
+            }
+            
+            if (sifre == "") {
+                alert("Şifrenizi girin");
+                return false;
+            }
+                
+            else return true;
+        }
+
+
+    </script>
+</body>
+</html>	
