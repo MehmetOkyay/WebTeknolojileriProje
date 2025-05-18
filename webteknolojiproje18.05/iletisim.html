@@ -1,0 +1,229 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>İletişim</title>
+    <meta id="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        #baslik {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #baslik a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .card {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        #altsatir {
+            background-color: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 15px ;
+            margin-bottom: 0px;
+        }
+
+    </style>
+</head>
+<body style="background-color: rgb(225, 222, 222);">
+
+    <div id="baslik">
+        <h1>Mehmet Okyay</h1>
+        <div>
+            <a href="hakkimda.html"><b>Hakkımda</b></a> |
+            <a href="ozgecmis.html"><b>Özgeçmiş</b></a> |
+            <a href="sehrim.html"><b>Şehrim</b></a> |
+            <a href="takimimiz.html"><b>Takımımız</b></a> |
+            <a href="ilgialanlarim.html"><b>İlgi Alanlarım</b></a> |
+            <a href="iletisim.html"><b>İletişim</b></a>
+        </div>
+    </div>
+
+    <form method="post" action="iletişimbilgiler.php" onsubmit="return gönder();">
+        <div class="card">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="isim"><b>İsim</b></label>
+                    <input type="text" class="form-control" id="isim" name="isim" placeholder="İsminizi girin">
+                </div>
+                <div class="col-md-6">
+                    <label for="soyisim"><b>Soyisim</b></label>
+                    <input type="text" class="form-control" id="soyisim" name="soyisim" placeholder="Soyisminizi girin">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email"><b>Email</b></label>
+                <input type="text" class="form-control" id="mail" name="mail" placeholder="Email adresinizi girin">
+            </div>
+
+            <div class="mb-3">
+                <label for="adres"><b>Adres</b></label>
+                <textarea class="form-control" id="adres" rows="4" name="adres" placeholder="Adresinizi girin"></textarea>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="dogumtarihi"><b>Doğum Tarihi</b></label>
+                    <input type="date" class="form-control" id="tarih" name="tarih">
+                </div>
+                <div class="col-md-6">
+                    <label for="telelfonno"><b>Telefon Numarası</b></label>
+                    <input type="text" class="form-control" id="telno" name="telno">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="cinsiyet"><b>Cinsiyet</b></label><br>
+           
+                <input type="radio" class="form-check-input" id="cinsiyet" name="cinsiyet" value="Erkek">
+                <label class="form-check-label"><img src="erkek.png" width="40" height="40"></label>
+                <input type="radio" class="form-check-input" id="cinsiyet" name="cinsiyet" value="Kadın">
+                <label class="form-check-label"><img src="kadın.png" width="40" height="40"></label>
+            </div>
+
+            <div class="text-left">
+                <input type="submit" class="btn btn-primary" value="Gönder">
+                <input type="reset" class="btn btn-danger ms-3" value="Temizle">
+            </div>
+        </div>
+    </form>
+
+    <div id="altsatir">
+        <p>© Mehmet Okyay - İletişim</p>
+    </div>
+
+    <script>
+        function gönder() {
+            var isim = document.getElementById("isim").value;
+            var soyisim = document.getElementById("soyisim").value;
+            var mail = document.getElementById("mail").value;
+            var adres = document.getElementById("adres").value;
+            var dogumtarihi = document.getElementById("tarih").value;
+            var telno = document.getElementById("telno").value;
+            var cinsiyet = document.getElementsByName("cinsiyet");
+
+            if (isim == "") {
+                alert ("İsminizi boş bırakmayın");
+                return false;
+            }
+
+            if (soyisim == "") {
+                alert ("Soyisminizi boş bırakmayın");
+                return false;
+            }
+
+            if (mail == "") {
+                alert ("Mailinizi boş bırakmayın");
+                return false;
+            }
+
+         
+            if (adres == "") {
+                alert ("Adresinizi boş bırakmayın");
+                return false;
+            }
+
+            var isaretinyeri = mail.indexOf("@");
+            var emailmi = false;
+            for (var i = 0; i < mail.length; i++) {
+                if (mail[i] == "@") {
+                    emailmi = true;
+                }
+            }
+
+            for (var i = 0; i < mail.length; i++) {
+                if (mail[i] == " ") {
+                    emailmi = false;
+                }
+            }
+
+            if (isaretinyeri == mail.length - 1) {
+                emailmi = false;
+            }
+
+            if (emailmi == false) {
+                alert("Lütfen geçerli bir email yazın");
+                return false;
+            }
+
+
+            if (dogumtarihi == "") {
+                alert ("Doğum tarihinizi boş bırakmayın");
+                return false;
+            }
+            var tarih = new Date(dogumtarihi);
+            var yil = tarih.getFullYear();
+
+            if (yil > 2025) {
+                alert("Daha doğmadınız");
+                return false;
+            }
+
+            else if (yil > 2022 && yil <= 2025) {
+                alert("Bu siteyi kullanmak için çok küçüksünüz");
+                return false;
+            }
+
+
+            if (telno == "") {
+                alert ("Telefon numaranızı boş bırakmayın");
+                return false;
+            }
+            var sadecesayimi = true;
+            var ilksayisifirmi = false;
+            for (var i = 0; i < telno.length; i++) {
+                if (telno[i] < '0' || telno[i] > '9') {
+                    sadecesayimi = false;
+                }
+                if (telno[0] == '0')
+                { 
+                    ilksayisifirmi = true;
+                }
+            }
+
+            if (sadecesayimi == false) {
+                alert("Telefon numarası sadece sayı olmalıdır");
+                return false;
+            }
+
+            if (ilksayisifirmi == false) {
+                alert("Telefon numarası 0 la başlamalıdır");
+                return false;
+            }
+
+            if (telno.length != 11) {
+                alert("Telefon numarası 11 karakterden oluşmalıdır");
+                return false;
+            }
+            
+            var cinsiyetsecildi = false;
+            for (var i = 0; i < cinsiyet.length; i++) {
+                if (cinsiyet[i].checked) {
+                    cinsiyetsecildi = true;
+                }
+            }
+
+            if (cinsiyetsecildi == false) {
+                alert("Cinsiyetinizi boş bırakmayın");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
