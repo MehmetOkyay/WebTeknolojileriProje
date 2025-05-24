@@ -1,0 +1,80 @@
+    #baslik {
+        background-color: #2c2c2c;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #baslik a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    #hakkimda p {
+        text-align: center;
+        background-color: white;
+        color: black;
+    }
+
+    .card {
+        margin: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+        border-bottom: 2px solid #444;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+
+    ul li {
+        text-align: left;
+        margin-left: 20px;
+        margin-bottom: 5px;
+    }
+
+
+    .kutuiçeriği {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .fotolar {
+        flex: 0 1 320px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .fotolar img {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border: 2px solid black;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fotolar button {
+        background-color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 0 10px;
+    }
+
+    #altsatir p {
+        background-color: #2c2c2c;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 0;
+    }
